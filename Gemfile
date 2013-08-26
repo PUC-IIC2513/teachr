@@ -33,7 +33,7 @@ group :development do
   
 end
 
-group :development, :testing do
+group :test, :development do
   # usamos SQLite para desarollo y testing
   gem 'sqlite3'
 end
@@ -43,6 +43,8 @@ group :production do
   gem 'rails_12factor'
   # usamos PostgresSQL para producción, por requisito de Heroku
   gem 'pg'
+  # otro webserver mejor para producción
+  gem 'unicorn'
 end
 
 # Use ActiveModel has_secure_password
