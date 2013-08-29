@@ -1,4 +1,8 @@
 Teachr::Application.routes.draw do
+  resources :tags
+
+  resources :announcements
+
   resources :resources
 
   resources :users
