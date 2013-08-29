@@ -43,6 +43,8 @@ ActiveRecord::Schema.define(version: 20130827161810) do
     t.datetime "updated_at"
   end
 
+  add_index "tags", ["name"], name: "index_tags_on_name", unique: true
+
   create_table "users", force: true do |t|
     t.string   "first_name", limit: 100,                     null: false
     t.string   "last_name",  limit: 100,                     null: false
