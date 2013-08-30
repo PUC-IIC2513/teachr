@@ -30,7 +30,7 @@ group :doc do
 end
 
 group :development do
-  
+  gem 'awesome_print'
 end
 
 group :test, :development do
