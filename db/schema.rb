@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130827161810) do
+ActiveRecord::Schema.define(version: 20130829160907) do
 
   create_table "announcements", force: true do |t|
     t.string   "title",                     null: false
@@ -36,6 +36,15 @@ ActiveRecord::Schema.define(version: 20130827161810) do
   end
 
   add_index "resources", ["user_id"], name: "index_resources_on_user_id"
+
+  create_table "resources_tags", id: false, force: true do |t|
+    t.integer "resource_id"
+    t.integer "tag_id"
+    t.integer "user_id"
+  end
+
+  add_index "resources_tags", ["resource_id", "tag_id"], name: "index_resources_tags_on_resource_id_and_tag_id", unique: true
+  add_index "resources_tags", ["user_id"], name: "index_resources_tags_on_user_id"
 
   create_table "tags", force: true do |t|
     t.string   "name"
