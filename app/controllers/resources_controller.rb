@@ -24,8 +24,10 @@ class ResourcesController < ApplicationController
   # POST /resources
   # POST /resources.json
   def create
+    tag_names = params[:resource].delete(:tag_names)
     @resource = Resource.new(resource_params)
-
+    @resource.process_tags(tag_names, params[:resource][:user_id])
+    
     respond_to do |format|
       if @resource.save
         format.html { redirect_to @resource, notice: 'Resource was successfully created.' }
@@ -40,8 +42,16 @@ class ResourcesController < ApplicationController
   # PATCH/PUT /resources/1
   # PATCH/PUT /resources/1.json
   def update
+    tag_names = params[:resource].delete(:tag_names)
+    saved = true
+    Resource.transaction do
+      saved = @resource.update(resource_params)
+      @resource.process_tags(tag_names, params[:resource][:user_id])
+      saved = @resource.save
+    end      
+    
     respond_to do |format|
-      if @resource.update(resource_params)
+      if saved
         format.html { redirect_to @resource, notice: 'Resource was successfully updated.' }
         format.json { head :no_content }
       else
