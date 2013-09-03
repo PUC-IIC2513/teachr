@@ -31,6 +31,18 @@
     <%= f.label :user_id %><br>
     <%= f.collection_select :user_id, User.all, :id, :email %>
   </div>
+	<ul>
+	<%= f.fields_for :resources_tags do |fr| %>
+		<li>
+			<%= fr.collection_select :tag_id, Tag.all, :id, :name, prompt: true %>
+			<%= fr.collection_select :user_id, User.all, :id, :email, prompt: true %>
+			<% if fr.object.persisted? %>
+				<%= fr.label :'_destroy', "Eliminar" %>
+				<%= fr.check_box :'_destroy' %>
+			<% end %>
+		</li>
+	<% end %>
+	</ul>
   <div class="actions">
     <%= f.submit %>
   </div>

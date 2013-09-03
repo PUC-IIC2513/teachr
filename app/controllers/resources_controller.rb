@@ -15,10 +15,12 @@ class ResourcesController < ApplicationController
   # GET /resources/new
   def new
     @resource = Resource.new
+    3.times { @resource.resources_tags.build }
   end
 
   # GET /resources/1/edit
   def edit
+    @resource.resources_tags.build
   end
 
   # POST /resources
@@ -69,6 +71,6 @@ class ResourcesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def resource_params
-      params.require(:resource).permit(:name, :description, :file, :url, :user_id)
+      params.require(:resource).permit(:name, :description, :file, :url, :user_id, resources_tags_attributes: [:tag_id, :user_id, :id, :_destroy])
     end
 end
