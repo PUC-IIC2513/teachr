@@ -33,6 +33,7 @@ group :development do
   gem 'awesome_print'
   gem 'quiet_assets'
   gem 'better_errors'
+  gem 'debugger'
 end
 
 group :test, :development do
