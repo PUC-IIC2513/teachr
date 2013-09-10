@@ -82,6 +82,15 @@ class ResourcesController < ApplicationController
     end
   end
 
+
+  def tag
+    t = Tag.find(params[:tag_id])
+    @resources = t.resources
+    render :index
+    # generando una única consulta SQL… pero en este caso deberíamos mover esto al modelo (skinny controllers, fat models)
+    # Resource.joins(:resources_tags).where(resources_tags: {tag_id: 4})
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_resource

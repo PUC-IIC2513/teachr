@@ -7,5 +7,9 @@ class User < ActiveRecord::Base
   validates :password, confirmation: true, presence: true, length: { in: 8..50 }
   validates :password_confirmation, presence: true
   validates :role, inclusion: { in: %w{student teacher assistant} }
+
+  def self.authenticate(email, password)
+  	User.find_by(email: email, password: password)
+  end
   
 end
