@@ -28,8 +28,9 @@ class ResourcesController < ApplicationController
     begin
       Resource.transaction do
         @resource = Resource.new(resource_params)
+        @resource.user = current_user
         @resource.save!
-        @resource.update_tags!(tag_names, params[:resource][:user_id])
+        @resource.update_tags!(tag_names, current_user)
       end
       saved = true
     rescue
@@ -54,7 +55,7 @@ class ResourcesController < ApplicationController
     begin
       Resource.transaction do
         @resource.update!(resource_params)
-        @resource.update_tags!(tag_names, params[:resource][:user_id])
+        @resource.update_tags!(tag_names, current_user)
       end
       saved = true
     rescue
@@ -99,6 +100,6 @@ class ResourcesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def resource_params
-      params.require(:resource).permit(:name, :description, :file, :url, :user_id)
+      params.require(:resource).permit(:name, :description, :temp_file, :url)
     end
 end

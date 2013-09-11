@@ -20,18 +20,14 @@
     <%= f.text_area :description %>
   </div>
   <div class="field">
-    <%= f.label :file %><br>
-    <%= f.text_field :file %>
+    <%= f.label :temp_file %><br>
+    <%= f.file_field :temp_file %>
   </div>
   <div class="field">
     <%= f.label :url %><br>
     <%= f.text_field :url %>
   </div>
   <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.collection_select :user_id, User.all, :id, :email %>
-  </div>
-	<div class="field">
     <%= f.label :tag_names %><br>
     <%= f.text_field :tag_names %>
   </div>

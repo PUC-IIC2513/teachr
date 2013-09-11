@@ -20,7 +20,7 @@
       <tr>
         <td><%= resource.name %></td>
         <td><%= resource.description %></td>
-        <td><%= resource.file %></td>
+        <td><%= link_to "Descargar", resource.file unless resource.file.blank? %></td>
         <td><%= resource.url %></td>
         <td><%= link_to resource.user.email, user_path(resource.user) %></td>
         <td><%= tag_list(resource.tags) %></td>
