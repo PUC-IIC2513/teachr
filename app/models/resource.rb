@@ -6,6 +6,7 @@ class Resource < ActiveRecord::Base
   attr_accessor :temp_file
 
   after_validation :process_file_or_url
+  after_save :move_file
 
   validates :name, presence: true
   validates :user_id, presence: true
@@ -27,27 +28,50 @@ class Resource < ActiveRecord::Base
     add_tags! tag_changes[:to_add]
     save!
   end
+
+  def file_url
+    "/uploads/#{self.id}/#{self.file}" unless self.file.blank?
+  end
   
   private
   
   def storage_location
-    @storage_location ||= Rails.root.join('public')
+    @storage_location ||= Rails.root.join('public', 'uploads')
+  end
+
+  def web_location
+    @web_location ||= 'uploads'
   end
 
   def process_file_or_url
     if temp_file && temp_file.is_a?(ActionDispatch::Http::UploadedFile)
-      web_path = File.join('uploads', "#{Digest::SHA1.hexdigest(Time.now.to_s)}_#{temp_file.original_filename}")
-      path = File.join(storage_location, web_path)
-      File.open(path, 'wb') do |file|
+      puts "ASDJASKDJASKDJASD"
+      @filename = temp_file.original_filename
+      @temp_file_path = File.join(storage_location, "#{Digest::SHA1.hexdigest(Time.now.to_s)}_#{@filename}")
+      File.open(@temp_file_path, 'wb') do |file|
         file.write(temp_file.read)
       end
-      self.file = web_path
+      self.file = @filename
+      self.url = nil
       self.temp_file = nil
+      puts "ARCHIVO: #{@filename}"
     elsif !self.url.blank? && self.file
       path = File.join(storage_location, 'upload', self.file)
       File.delete(path) if File.exists?(path)
       self.file = nil
     end
+  end
+
+  def move_file
+    unless @temp_file_path.blank? || !File.exists?(@temp_file_path)
+      path = File.join(storage_location, self.id.to_s)
+      puts "SIIII Moviendo file... #{@temp_file_path} a #{path}"
+      Dir.mkdir(path) unless File.directory?(path)
+      new_path = File.join(path, @filename)
+      File.rename(@temp_file_path, new_path)
+    end
+  rescue => e
+    puts e.message
   end
 
   def add_tags!(tags_names)
