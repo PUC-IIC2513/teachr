@@ -1,10 +1,14 @@
 class SessionsController < ApplicationController
+
+  skip_before_filter :require_login
+
   def new
   end
 
   def create  	
   	if u = User.authenticate(params[:session][:email], params[:session][:password])
   		session[:user_id] = u.id
+      flash.notice = "Signed in successflly"
   		redirect_to root_path
   	else
   		flash.now.alert = "Wrong email or password."
@@ -13,5 +17,8 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    reset_session
+    flash.notice = "Signed out successfully!"
+    redirect_to root_path
   end
 end
