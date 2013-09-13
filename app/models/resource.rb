@@ -45,7 +45,6 @@ class Resource < ActiveRecord::Base
 
   def process_file_or_url
     if temp_file && temp_file.is_a?(ActionDispatch::Http::UploadedFile)
-      puts "ASDJASKDJASKDJASD"
       @filename = temp_file.original_filename
       @temp_file_path = File.join(storage_location, "#{Digest::SHA1.hexdigest(Time.now.to_s)}_#{@filename}")
       File.open(@temp_file_path, 'wb') do |file|
@@ -54,7 +53,6 @@ class Resource < ActiveRecord::Base
       self.file = @filename
       self.url = nil
       self.temp_file = nil
-      puts "ARCHIVO: #{@filename}"
     elsif !self.url.blank? && self.file
       path = File.join(storage_location, 'upload', self.file)
       File.delete(path) if File.exists?(path)
@@ -65,7 +63,6 @@ class Resource < ActiveRecord::Base
   def move_file
     unless @temp_file_path.blank? || !File.exists?(@temp_file_path)
       path = File.join(storage_location, self.id.to_s)
-      puts "SIIII Moviendo file... #{@temp_file_path} a #{path}"
       Dir.mkdir(path) unless File.directory?(path)
       new_path = File.join(path, @filename)
       File.rename(@temp_file_path, new_path)
