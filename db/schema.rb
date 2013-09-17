@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130903155450) do
+ActiveRecord::Schema.define(version: 20130917000129) do
 
   create_table "announcements", force: true do |t|
     t.string   "title",                     null: false
@@ -55,11 +55,11 @@ ActiveRecord::Schema.define(version: 20130903155450) do
   add_index "tags", ["name"], name: "index_tags_on_name", unique: true
 
   create_table "users", force: true do |t|
-    t.string   "first_name", limit: 100,                     null: false
-    t.string   "last_name",  limit: 100,                     null: false
-    t.string   "email",      limit: 200,                     null: false
-    t.string   "password",   limit: 50,                      null: false
-    t.string   "role",                   default: "student"
+    t.string   "first_name",      limit: 100,                     null: false
+    t.string   "last_name",       limit: 100,                     null: false
+    t.string   "email",           limit: 200,                     null: false
+    t.string   "password_digest", limit: 50,                      null: false
+    t.string   "role",                        default: "student"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
