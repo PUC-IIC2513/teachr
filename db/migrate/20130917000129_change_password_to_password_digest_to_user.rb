@@ -7,6 +7,7 @@ class ChangePasswordToPasswordDigestToUser < ActiveRecord::Migration
     require 'bcrypt'
     User.all.each do |u|
       u.password = u.password_digest
+      u.password_confirmation = u.password_digest
       u.save
     end
   end
