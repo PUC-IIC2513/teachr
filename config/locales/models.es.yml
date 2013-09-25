@@ -1,0 +1,17 @@
+es:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            first_name:
+              blank: no puede estar vacío
+    models:
+      user: usuario
+    attributes:
+      user:
+        first_name: nombre
+        last_name: apellido
+        email: e-mail
+        password: contraseña
+        password_confirmation: confirmación de contraseña

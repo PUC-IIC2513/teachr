@@ -1,4 +1,6 @@
 Teachr::Application.routes.draw do
+  
+  resource :sign_up, only: [:new, :create]
 
   resources :tags
 
