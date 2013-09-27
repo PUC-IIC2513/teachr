@@ -1,3 +1,23 @@
 // Place all the styles related to the Sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#new-session {
+  margin: 120px auto;
+  width: 300px;
+  text-align: center;
+  border: 1px solid #AAA;
+  padding: 20px;
+  -webkit-border-radius: 15px;  
+  border-radius: 15px;
+  -webkit-box-shadow:  10px 10px 10px 0px rgba(0, 0, 0, 0.5);
+  box-shadow:  10px 10px 10px 0px rgba(0, 0, 0, 0.5);
+  
+  background: #fffad6;
+  background: -moz-radial-gradient(center, ellipse cover,  #fffad6 0%, #ffffff 100%);
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#fffad6), color-stop(100%,#ffffff));
+  background: -webkit-radial-gradient(center, ellipse cover,  #fffad6 0%,#ffffff 100%);
+  background: -o-radial-gradient(center, ellipse cover,  #fffad6 0%,#ffffff 100%);
+  background: -ms-radial-gradient(center, ellipse cover,  #fffad6 0%,#ffffff 100%);
+  background: radial-gradient(ellipse at center,  #fffad6 0%,#ffffff 100%);
+}

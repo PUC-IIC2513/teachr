@@ -7,11 +7,3 @@
 <% if alert %>
 	<div class="alert"><%= alert %></div>
 <% end -%>
-
-<% if current_user %>
-Hola, <%= current_user.first_name %>!
-
-<%= link_to 'Sign out!', session_path, method: :delete %>
-<% else %>
-<%= link_to 'Sign in!', new_session_path %>
-<% end -%>

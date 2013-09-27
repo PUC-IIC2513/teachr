@@ -11,3 +11,23 @@
  *= require_self
  *= require_tree .
  */
+
+body {
+  font-family: Helvetica, Verdana, Arial, sans-serif;
+}
+
+#logo {
+  height: 50px;
+}
+
+header a {
+  float: left;
+}
+
+#login-box {
+  float: right;
+}
+
+.clear {
+  clear: both;
+}
