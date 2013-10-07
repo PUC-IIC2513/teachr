@@ -153,3 +153,34 @@ form.horizontal div.field input {
 form.horizontal div.actions {
   margin-left: 210px;
 }
+
+/* menú */
+
+nav#menu li {
+  float: left;
+  list-style: none;
+}
+
+nav#menu li a {
+  background: #eee;
+  color: #121299;
+  text-decoration: none;
+  padding: 10px 30px;
+  border: 1px solid #777;
+  border-radius: 10px 10px 0 0;
+}
+
+nav#menu li a:hover {
+  background: #ffa;
+}
+
+nav#menu li.selected a {
+  background: #fff;
+  border-bottom: 0;
+}
+
+nav#menu ul:after {
+  content: "";
+  display: block;
+  clear: both;
+}

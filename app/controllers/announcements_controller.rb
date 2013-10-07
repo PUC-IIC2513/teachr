@@ -1,4 +1,7 @@
 class AnnouncementsController < ApplicationController
+  
+  layout "internal_layout"
+  
   before_action :set_announcement, only: [:show, :edit, :update, :destroy]
 
   # GET /announcements

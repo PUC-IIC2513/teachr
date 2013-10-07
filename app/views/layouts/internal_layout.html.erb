@@ -1,0 +1,17 @@
+<% content_for :login_box do %>
+	<div>Hola, <%= current_user.first_name %>! <%= link_to "Salir", session_path, method: :delete %></div>
+<% end %>
+
+<% content_for :content do %>
+	<nav id="menu">
+		<ul>
+			<%= nav_link "Anuncios", announcements_path %>
+			<%= nav_link "Recursos", resources_path %>
+			<%= nav_link "Tags", tags_path %>
+		</ul>
+	</nav>
+	
+	<%= yield %>
+<% end %>
+
+<%= render template: "layouts/application" %>

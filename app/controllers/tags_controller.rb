@@ -1,4 +1,7 @@
 class TagsController < ApplicationController
+  
+  layout "internal_layout"
+  
   before_action :set_tag, only: [:show, :edit, :update, :destroy]
 
   # GET /tags

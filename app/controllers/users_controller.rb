@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  
+  layout "internal_layout"
+  
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
