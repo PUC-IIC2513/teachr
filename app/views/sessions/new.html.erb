@@ -1,19 +1,24 @@
-<h1>Inicia sesión</h1>
+<% content_for :login_box do %>
+<div></div>
+<% end %>
+<div id="new-session">
+	<h1>Inicia sesión</h1>
 
-<%# al no tener un recurso, la URL a la que nos lleve el formulario
-no será a la acción create, sino a la misma URL actual (session/new) %>
-<%= form_for :session, url: session_path do |f| -%>
-	<div class="field">
-		<%= f.text_field :email, value: params[:session].try(:[], :email), placeholder: "e-mail" %>
+	<%# al no tener un recurso, la URL a la que nos lleve el formulario
+	no será a la acción create, sino a la misma URL actual (session/new) %>
+	<%= form_for :session, url: session_path do |f| -%>
+		<div class="field">
+			<%= f.text_field :email, value: params[:session].try(:[], :email), placeholder: "e-mail" %>
+		</div>
+		<div class="field">
+			<%= f.password_field :password, placeholder: "contraseña" %>
+		</div>
+		<div class="actions">
+			<%= f.submit "Ingresa", class: "btn" %>
+		</div>
+	<% end -%>
+	<div>
+		<p>o</p>
+		<%= link_to "Regístrate", new_sign_up_path, class: "btn" %>
 	</div>
-	<div class="field">
-		<%= f.password_field :password, placeholder: "contraseña" %>
-	</div>
-	<div class="actions">
-		<%= f.submit "Ingresa" %>
-	</div>
-<% end -%>
-<div>
-	<p>o</p>
-	<%= link_to "Regístrate", new_sign_up_path %>
 </div>

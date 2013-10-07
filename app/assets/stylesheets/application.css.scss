@@ -14,6 +14,7 @@
 
 body {
   font-family: Helvetica, Verdana, Arial, sans-serif;
+  color: #143BD0;
 }
 
 #logo {
@@ -32,6 +33,7 @@ header a#logo-link {
   clear: both;
 }
 
+/* alerts */
 div.alert {
   background: #FFF2F2;
   color: #B63535;
@@ -49,4 +51,105 @@ div.alert.notice {
   border: 1px solid #3569B6;
   -webkit-box-shadow: 2px 2px 3px 0px rgba(53, 105, 182, 0.2);
   box-shadow: 2px 2px 3px 0px rgba(53, 105, 182, 0.2);
+}
+
+/* botones */
+input[type=submit].btn, a.btn {
+  background: #4d90fe;
+  color: #fff;
+  text-shadow: 0 1px rgba(0,0,0,0.1);
+  padding: 4px 10px;
+  font-size: 110%;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  border: 1px solid #3079ed;
+  text-decoration: none;
+  transition: all 0.5s;
+}
+
+input[type=submit].btn:hover, a.btn:hover {
+  border: 1px solid #2f5bb7;
+  text-shadow: 0 1px rgba(0,0,0,0.3);
+  background: #357ae8;
+  cursor: pointer;
+}
+
+/* forms */
+input[type=text],
+input[type=password],
+input[type=number],
+input[type=email] {
+  color: #222;
+  padding: 4px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  border: 1px solid #bbb;
+  font-size: 120%;
+}
+
+input[type=text]:focus,
+input[type=password]:focus,
+input[type=number]:focus,
+input[type=email]:focus {
+  border: 1px solid #7777bb;
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(85, 149, 207, 0.75);
+  -moz-box-shadow: 0px 0px 10px 0px rgba(85, 149, 207, 0.75);
+  box-shadow: 0px 0px 10px 0px rgba(85, 149, 207, 0.75);
+  outline: none;
+}
+
+.field_with_errors {
+  input[type=text],
+  input[type=password],
+  input[type=number],
+  input[type=email] {
+    color: #D11C1C;
+    border: 1px solid #D89292;
+  }
+  
+  label {
+    color: #D11C1C;
+  }
+  
+  input[type=text]:focus,
+  input[type=password]:focus,
+  input[type=number]:focus,
+  input[type=email]:focus {
+    border: 1px solid #D89292;
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(201, 70, 75, 0.75);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(201, 70, 75, 0.75);
+    box-shadow: 0px 0px 10px 0px rgba(201, 70, 75, 0.75);
+  }
+}
+
+div.actions {
+  margin-top: 10px;
+}
+
+form.horizontal div.field {
+  margin-bottom: 5px;
+}
+
+form.horizontal div.field:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+form.horizontal div.field label {
+  float: left;
+  clear: left;
+  width: 200px;
+  line-height: 35px;
+  vertical-align: center;
+  text-align: right;
+}
+
+form.horizontal div.field input {
+  float: left;
+  margin-left: 10px;
+}
+
+form.horizontal div.actions {
+  margin-left: 210px;
 }
