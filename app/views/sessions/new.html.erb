@@ -1,11 +1,5 @@
 <h1>Inicia sesión</h1>
 
-<% if alert %>
-	<div class="alert">
-		<%= alert %>
-	</div>
-<% end -%>
-
 <%# al no tener un recurso, la URL a la que nos lleve el formulario
 no será a la acción create, sino a la misma URL actual (session/new) %>
 <%= form_for :session, url: session_path do |f| -%>

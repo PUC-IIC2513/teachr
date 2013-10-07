@@ -1,3 +1,48 @@
 // Place all the styles related to the Home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#welcome {
+  h1, p {
+    text-align: center;
+  }
+}
+
+@-webkit-keyframes logo {
+   from {
+     transform: scale(3.0) rotate(75deg);
+     -webkit-transform: scale(3.0) rotate(75deg);
+     opacity: 0;
+     top: 200px;
+   }
+   to {
+     transform: scale(1.0) rotate(0deg);
+     -webkit-transform: scale(1.0) rotate(0deg);
+     opacity: 1;
+     top: 0px;
+   }
+}
+
+@keyframes logo {
+   from {
+     transform: scale(3.0) rotate(75deg);
+     top: 200px;
+     opacity: 0;
+   }
+   to {
+     transform: scale(1.0) rotate(0deg);
+     opacity: 1;
+     top: 0px;
+   }
+}
+
+#logo-big {
+  text-align: center;
+  img {
+    position: relative;
+    width: 600px;
+    margin-top: 40px;
+    animation: logo 2s;
+    -webkit-animation: logo 2s;
+  }
+}

@@ -7,8 +7,44 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<header>
+		<%= link_to image_tag('logo.png', alt: "Logo Teachr", title: "Teachr", id: "logo"), root_path, class: "logo-link" %>
+		
+		<div id="login-box">
+			<% if content_for? :login_box %>
+				<%= yield(:login_box) %>
+			<% else %>
+				  
+				<% if current_user %>
+					Hola, <%= current_user.first_name %>!
 
-<%= yield %>
+					<%= link_to 'Salir!', session_path, method: :delete %>
+				<% else %>
+					<%= form_for :session, url: session_path do |f| -%>
+						<%= f.text_field :email, value: params[:session].try(:[], :email), placeholder: "e-mail" %>
+						<%= f.password_field :password, placeholder: "contraseña" %>
+						<%= f.submit "Ingresa", class: "btn" %>
+					<% end %>
+				<% end %>
+			<% end -%>
+			
+		</div>
+		<div class="clear"></div>
+	</header>
+	
+	<% if notice %>
+		<div class="alert notice">
+			<%= notice %>
+		</div>
+	<% end %>
+
+	<% if alert %>
+		<div class="alert">
+			<%= alert %>
+		</div>
+	<% end %>
+	
+	<%= yield %>
 
 </body>
 </html>

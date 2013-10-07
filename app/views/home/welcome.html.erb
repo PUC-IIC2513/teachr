@@ -1,17 +1,8 @@
-<h1>Home#welcome</h1>
-<p>Find me in app/views/home/welcome.html.erb</p>
-
-<% if notice %>
-	<div class="notice"><%= notice %></div>
-<% end -%>
-<% if alert %>
-	<div class="alert"><%= alert %></div>
-<% end -%>
-
-<% if current_user %>
-Hola, <%= current_user.first_name %>!
-
-<%= link_to 'Sign out!', session_path, method: :delete %>
-<% else %>
-<%= link_to 'Sign in!', new_session_path %>
-<% end -%>
+<div id="welcome">
+	<h1>Sistema web del curso Tecnologías y Aplicaciones Web</h1>
+	<p><%= link_to "Ingresa", new_session_path %> o <%= link_to "registra una nueva cuenta", new_sign_up_path %>.</p>
+	<div id="logo-big">
+		<%= image_tag "logo.png", alt: "Logo Teachr", title: "Teachr" %>
+	</div>
+	
+</div>

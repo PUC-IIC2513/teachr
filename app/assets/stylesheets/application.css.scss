@@ -11,3 +11,42 @@
  *= require_self
  *= require_tree .
  */
+
+body {
+  font-family: Helvetica, Verdana, Arial, sans-serif;
+}
+
+#logo {
+  height: 50px;
+}
+
+header a#logo-link {
+  float: left;
+}
+
+#login-box {
+  float: right;
+}
+
+.clear {
+  clear: both;
+}
+
+div.alert {
+  background: #FFF2F2;
+  color: #B63535;
+  border: 1px solid #B63535;
+  border-radius: 5px;
+  padding: 4px 8px;
+  margin-top: 10px;
+  -webkit-box-shadow: 2px 2px 3px 0px rgba(182, 5, 53, 0.2);
+  box-shadow: 2px 2px 3px 0px rgba(182, 5, 53, 0.2);
+}
+
+div.alert.notice {
+  background: #CBD6FF;
+  color: #3569B6;
+  border: 1px solid #3569B6;
+  -webkit-box-shadow: 2px 2px 3px 0px rgba(53, 105, 182, 0.2);
+  box-shadow: 2px 2px 3px 0px rgba(53, 105, 182, 0.2);
+}
