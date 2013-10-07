@@ -15,6 +15,20 @@ Teachr::Application.configure do
 
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
+  
+  config.action_mailer.delivery_method = :smtp
+  # mandrillapp.com ofrece 12.000 envíos de correo mensuales gratuitos, al registrar una cuenta.
+  # Se puede tener un SMTP diferente para producción, testing y development. Mientras tanto,
+  # usaremos el mismo para development y production
+  config.action_mailer.smtp_settings = {
+    :address              => "smtp.mandrillapp.com",
+    :port                 => 587,
+    #:domain               => 'YOUR DOMAIN',
+    :user_name            => '[user]',
+    :password             => '[password]',
+    :authentication       => 'plain',
+    :enable_starttls_auto => true
+  }
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log

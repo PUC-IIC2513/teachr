@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130917000129) do
+ActiveRecord::Schema.define(version: 20131007200059) do
 
   create_table "announcements", force: true do |t|
     t.string   "title",                     null: false
@@ -62,6 +62,8 @@ ActiveRecord::Schema.define(version: 20130917000129) do
     t.string   "role",                        default: "student"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "validated"
+    t.string   "validation_hash"
   end
 
 end

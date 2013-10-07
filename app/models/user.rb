@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  
+  before_save :check_email_changes
+  
   has_many :announcements, dependent: :destroy
   
   has_secure_password
@@ -11,6 +14,17 @@ class User < ActiveRecord::Base
 
   def self.authenticate(email, password)
   	User.find_by(email: email).try(:authenticate, password)
+  end
+  
+  def check_email_changes
+    if changed.include? "email"
+      self.validated = false
+      self.validation_hash = generate_hash
+    end
+  end
+  
+  def generate_hash
+    Digest::SHA1.hexdigest "#{self.id}-#{self.email}-#{Time.now}"
   end
   
 end
