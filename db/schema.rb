@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 20131007200059) do
     t.string   "first_name",      limit: 100,                     null: false
     t.string   "last_name",       limit: 100,                     null: false
     t.string   "email",           limit: 200,                     null: false
-    t.string   "password_digest", limit: 50,                      null: false
+    t.string   "password_digest", limit: 100,                     null: false
     t.string   "role",                        default: "student"
     t.datetime "created_at"
     t.datetime "updated_at"
