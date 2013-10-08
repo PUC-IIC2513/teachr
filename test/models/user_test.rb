@@ -1,18 +1,21 @@
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
-  test "user should invalidated and create a validation hash" do
-    u = User.first
-    u.validated = true
-    u.validation_hash = nil
-    u.save
-    assert u.validated
-    assert_nil u.validation_hash
+
+  test "should changed state to invalid" do
+    user = users(:jane)
+    user.validated = true
+    user.validation_hash = nil
+    user.save
     
-    u.email = "another." + u.email
-    u.save
+    assert user.validated
+    assert_nil user.validation_hash
     
-    refute u.validated, "User is not invalidated when changing his email"
-    refute_nil u.validation_hash, "User has not created a validation_hash after changing his email"
+    user.email = "otro_#{user.email}"
+    user.save
+    
+    refute user.validated, "user should be invalidated"
+    refute_nil user.validation_hash
+    
   end
 end
