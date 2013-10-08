@@ -10,8 +10,8 @@
 
 @-webkit-keyframes logo {
    from {
-     transform: scale(3.0) rotate(75deg);
-     -webkit-transform: scale(3.0) rotate(75deg);
+     transform: scale(4.0) rotate(75deg);
+     -webkit-transform: scale(4.0) rotate(75deg);
      opacity: 0;
      top: 200px;
    }
@@ -25,7 +25,7 @@
 
 @keyframes logo {
    from {
-     transform: scale(3.0) rotate(75deg);
+     transform: scale(4.0) rotate(75deg);
      top: 200px;
      opacity: 0;
    }
