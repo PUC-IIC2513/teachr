@@ -10,7 +10,6 @@ class Resource < ActiveRecord::Base
   def update_tags!(tag_names, user)
     user = User.find(user) unless user.is_a?(User)
     tag_changes = tags_to_modify(tag_names)
-    puts tag_changes
     remove_tags! tag_changes[:to_delete]
     add_tags! tag_changes[:to_add]
     save!

@@ -2,7 +2,15 @@ require 'test_helper'
 
 class ResourcesControllerTest < ActionController::TestCase
   setup do
-    @resource = resources(:one)
+    @resource = resources(:railsslides)
+    @new_resource = Resource.new(
+      name: 'Nuevo recurso',
+      description: 'Un nuevo recurso muy interesante',
+      file: 'archivo.pdf',
+      user: users(:john)
+    )
+    
+    session[:user_id] = users(:john).id
   end
 
   test "should get index" do
@@ -18,7 +26,7 @@ class ResourcesControllerTest < ActionController::TestCase
 
   test "should create resource" do
     assert_difference('Resource.count') do
-      post :create, resource: { description: @resource.description, file: @resource.file, name: @resource.name, url: @resource.url, user_id: @resource.user_id }
+      post :create, resource: { description: @new_resource.description, file: @new_resource.file, name: @new_resource.name, url: @new_resource.url, user_id: @new_resource.user_id, tag_names: "ruby" }
     end
 
     assert_redirected_to resource_path(assigns(:resource))

@@ -1,0 +1,16 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  resource: rubyslides
+  tag: ruby
+  user: john
+
+two:
+  resource: railsslides
+  tag: rails
+  user: john
+
+three:
+  resource: railsslides
+  tag: ruby
+  user: jane

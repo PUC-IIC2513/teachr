@@ -7,13 +7,13 @@ class SessionsControllerTest < ActionController::TestCase
   end
 
   test "should get create" do
-    get :create
+    get :create, session: { email: "john@example.org", password: "hola.123" }
     assert_response :success
   end
 
   test "should get destroy" do
     get :destroy
-    assert_response :success
+    assert_redirected_to root_path
   end
 
 end

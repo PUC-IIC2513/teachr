@@ -27,7 +27,7 @@ class ResourcesController < ApplicationController
   # POST /resources
   # POST /resources.json
   def create
-    tag_names = params[:resource].delete(:tag_names)
+    tag_names = params[:resource].delete(:tag_names) || ""
     begin
       Resource.transaction do
         @resource = Resource.new(resource_params)
@@ -53,7 +53,7 @@ class ResourcesController < ApplicationController
   # PATCH/PUT /resources/1
   # PATCH/PUT /resources/1.json
   def update
-    tag_names = params[:resource].delete(:tag_names)
+    tag_names = params[:resource].delete(:tag_names) || ""
     begin
       Resource.transaction do
         @resource.update!(resource_params)
