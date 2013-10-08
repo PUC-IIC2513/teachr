@@ -2,7 +2,10 @@ require 'test_helper'
 
 class TagsControllerTest < ActionController::TestCase
   setup do
-    @tag = tags(:one)
+    @tag = tags(:ruby)
+    @new_tag = Tag.new(name: 'nuevo_tag')
+    
+    session[:user_id] = users(:john).id
   end
 
   test "should get index" do
@@ -18,7 +21,7 @@ class TagsControllerTest < ActionController::TestCase
 
   test "should create tag" do
     assert_difference('Tag.count') do
-      post :create, tag: { name: @tag.name }
+      post :create, tag: { name: @new_tag.name }
     end
 
     assert_redirected_to tag_path(assigns(:tag))

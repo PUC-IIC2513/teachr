@@ -1,15 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  title: MyString
-  content: MyText
+i1:
+  title: I1 este martes
+  content: La I1 será realizada este martes a las 18:30 en una sala por confirmar.
   level: 1
-  notify: false
-  user_id: 
+  notify: true
+  user_id: users(:john).id
 
-two:
-  title: MyString
-  content: MyText
+tdd:
+  title: Testing
+  content: TDD es una metodología ágil muy recomendada de conocer.
   level: 1
   notify: false
-  user_id: 
+  user_id: users(:john).id

@@ -2,7 +2,16 @@ require 'test_helper'
 
 class AnnouncementsControllerTest < ActionController::TestCase
   setup do
-    @announcement = announcements(:one)
+    @announcement = announcements(:i1)
+    @new_announcement = Announcement.new(
+      title: "Testing",
+      content: "Testing announcements...",
+      level: 1,
+      notify: false,
+      user: users(:john)
+    )
+    
+    session[:user_id] = users(:john).id
   end
 
   test "should get index" do
@@ -18,7 +27,7 @@ class AnnouncementsControllerTest < ActionController::TestCase
 
   test "should create announcement" do
     assert_difference('Announcement.count') do
-      post :create, announcement: { content: @announcement.content, level: @announcement.level, notify: @announcement.notify, title: @announcement.title, user_id: @announcement.user_id }
+      post :create, announcement: { content: @new_announcement.content, level: @new_announcement.level, notify: @new_announcement.notify, title: @new_announcement.title, user_id: @new_announcement.user_id }
     end
 
     assert_redirected_to announcement_path(assigns(:announcement))

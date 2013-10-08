@@ -1,15 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  name: MyString
-  description: MyText
-  file: MyString
-  url: MyString
-  user_id: 
+rubyslides:
+  name: Clase de Ruby
+  description: Clase sobre el lenguaje Ruby
+  file: ruby.pdf
+  url:
+  user: john
 
-two:
-  name: MyString
-  description: MyText
-  file: MyString
-  url: MyString
-  user_id: 
+railsslides:
+  name: Clase de Rails
+  description: Clase sobre el framework web Rails
+  file: rails.pdf
+  url: 
+  user: jane
