@@ -15,15 +15,15 @@
 
 	  <div class="field">
 	    <%= f.label :first_name %>
-	    <%= f.text_field :first_name %>
+	    <%= f.text_field :first_name, data: { validate: "required" } %>
 	  </div>
 	  <div class="field">
 	    <%= f.label :last_name %>
-	    <%= f.text_field :last_name %>
+	    <%= f.text_field :last_name, data: { validate: "required" } %>
 	  </div>
 	  <div class="field">
 	    <%= f.label :email %>
-	    <%= f.text_field :email %>
+	    <%= f.text_field :email, data: { validate: "required" } %>
 	  </div>
 	  <div class="field">
 	    <%= f.label :password %>
