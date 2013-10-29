@@ -2,7 +2,9 @@ Teachr::Application.routes.draw do
   
   resource :sign_up, only: [:new, :create]
 
-  resources :tags
+  resources :tags do
+    get :resources, on: :member
+  end
 
   resources :announcements
 

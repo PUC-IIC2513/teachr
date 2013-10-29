@@ -1,0 +1,6 @@
+<h1>Recursos del tag <%= @tag.name %></h1>
+<ul>
+  <% @resources.each do |r| %>
+    <li><%= r.name %></li>
+  <% end %>
+</ul>

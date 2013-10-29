@@ -2,7 +2,7 @@ class TagsController < ApplicationController
   
   layout "internal_layout"
   
-  before_action :set_tag, only: [:show, :edit, :update, :destroy]
+  before_action :set_tag, only: [:show, :edit, :update, :destroy, :resources]
 
   # GET /tags
   # GET /tags.json
@@ -61,6 +61,14 @@ class TagsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to tags_url }
       format.json { head :no_content }
+    end
+  end
+  
+  def resources
+    @resources = @tag.resources
+    respond_to do |format|
+      format.js {}
+      format.html {}
     end
   end
 
