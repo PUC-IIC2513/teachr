@@ -66,9 +66,21 @@ class TagsController < ApplicationController
   
   def resources
     @resources = @tag.resources
-    respond_to do |format|
-      format.js {}
-      format.html {}
+    # Una primera opción para manejar un request Ajax es responder directamente
+    # código JavaScript al responder al formato JS (que será el formato preferente)
+    # para el caso de un request Ajax. Si dejamos el format.js vacío, iremos a 
+    # procesar el template resources.js.erb, en donde podremos generar el código
+    # JavaScript que nos genere los cambios que necesitamos.
+    # respond_to do |format|
+    #   format.js {}
+    #   format.html {}
+    # end
+    # Si no queremos enviar código JavaScript generado, la otra opción es enviar
+    # directamente un trozo de HTML, y encargarnos de recibir y procesar adecuadamente
+    # este resultado en el cliente. Para ello, detectamos un request Ajax (HTTPXMLRequest)
+    # y, en ese caso, rendereamos sólo un partial en vez del template completo.
+    if request.xhr?
+      render partial: 'resources' and return
     end
   end
 

@@ -1,6 +1,6 @@
 <h1>Tags</h1>
 <div id="tags">
 <% @tags.each do |tag| %>
-  <%= link_to tag.name, resources_tag_path(tag), class: 'tag', remote: true %>
+  <%= link_to tag.name, resources_tag_path(tag), class: 'tag', id: "tag_#{tag.id}", remote: true %>
 <% end %>
 </div>

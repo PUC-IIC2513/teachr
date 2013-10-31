@@ -190,3 +190,36 @@ nav#menu ul:after {
   display: block;
   clear: both;
 }
+
+
+div.bubble {
+  border-radius: 15px;
+  border: 2px solid #ddd;
+  width: 300px;
+  position: absolute;
+  -webkit-box-shadow:  4px 4px 10px 0px rgba(0, 0, 0, 0.5);
+  box-shadow:  4px 4px 10px 0px rgba(0, 0, 0, 0.5);
+  text-align: left;
+  padding: 20px;
+}
+
+div.bubble:before {
+  content: "";
+  position: absolute;
+  top: -30px;
+  left: 50px;
+  border-width: 0 30px 30px 0;
+  border-style: solid;
+  border-color: #ddd transparent;
+  width: 0;
+}
+
+div.bubble:after {
+  content: "";
+  position: absolute;
+  top: -25px;
+  left: 52px;
+  border-width: 0 30px 30px 0;
+  border-style: solid;
+  border-color: #fff transparent;
+}
