@@ -1,6 +1,14 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
 
+var Teachr =  (function(m, undefined) {
+  m.validateRequired = function(field) {
+    //TODO valida
+  };
+}(Teachr || {}));
+
+
+
 /**
 Validación "required" a cualquier campo con data-validate=required.
 */

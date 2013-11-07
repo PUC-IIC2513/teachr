@@ -1,15 +1,1 @@
-var $tag = $("#tag_<%= @tag.id %>");
-
-var $bubble = $('#tag-bubble');
-if($bubble.length === 0) {
-  $bubble = $('<div id="tag-bubble"></div>').addClass("bubble");
-  $("#tags").append($bubble);
-}
-
-$bubble.html("<%= escape_javascript(render partial: 'resources') %>");
-
-var pos = $tag.offset();
-pos.top += 50;
-pos.left -= 50;
-
-$bubble.offset(pos);
+Teachr.createTagBubble("<%= @tag.id %>", "<%= escape_javascript(render partial: 'resources') %>");
