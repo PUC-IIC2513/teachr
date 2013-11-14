@@ -1,4 +1,9 @@
 Teachr::Application.routes.draw do
+
+  get "repository/index"
+  namespace :api do
+    
+  end
   
   resource :sign_up, only: [:new, :create]
 

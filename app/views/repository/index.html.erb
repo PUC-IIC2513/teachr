@@ -1,0 +1,7 @@
+<h1>Últimos commits</h1>
+<dl>
+	<% @commits.each do |commit| %>
+		<dt><%= link_to commit['commit']['message'], commit['html_url'], target: :blank %></dt>
+		<dd><%= commit['commit']['author']['date'] %></dd>
+	<% end %>
+</dl>
