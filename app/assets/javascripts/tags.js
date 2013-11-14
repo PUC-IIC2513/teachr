@@ -31,7 +31,10 @@ $(loadAjaxTags);
 $(document).on('page:load', loadAjaxTags);
 
 
-var Teachr = (function(m) {
+var Teachr = (function(m, $) {
+  
+  var sm = m.UI = m.UI || {};
+
   
   function privada() {
     
@@ -40,7 +43,7 @@ var Teachr = (function(m) {
   
   var datoCompartido = 42;
   
-  m.createTagBubble = function(tag_id, content) {
+  sm.createTagBubble = function(tag_id, content) {
     var $tag = $("#tag_" + tag_id);
 
     var $bubble = $('#tag-bubble');
@@ -60,5 +63,5 @@ var Teachr = (function(m) {
   }
   
   return m;
-}(Teachr || {}));
+}(Teachr || {}, jQuery));
 
